@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Minesweeper</string>
+    <string name="start">😊</string>
+    <string name="flag">🚩</string>
+    <string name="mine">💣</string>
+    <string name="countStart">000</string>>
+    <string name="timer">🕒</string>
 </resources>
