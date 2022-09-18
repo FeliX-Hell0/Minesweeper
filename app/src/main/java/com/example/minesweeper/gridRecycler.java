@@ -42,6 +42,22 @@ public class gridRecycler extends RecyclerView.Adapter<gridRecycler.MyViewHolder
                     click.onGridClick(grid);
                 }
             });
+
+            if(grid.revealed) {
+                if (grid.mine) {
+                    gridValue.setText(R.string.mine);
+                } else if (grid.value != 0) {
+                    gridValue.setText(String.valueOf(grid.value));
+
+                } else {
+                    itemView.setBackgroundColor(Color.WHITE);
+                    grid temp;
+                    temp = clearWhite(grid);
+                }
+            }
+        }
+        private grid clearWhite(grid curr){
+
         }
     }
 

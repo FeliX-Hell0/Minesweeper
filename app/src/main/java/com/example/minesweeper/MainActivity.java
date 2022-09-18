@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements onGridClick {
     RecyclerView gridRecyclerView;
     gridRecycler adaptor;
     game myGame;
+    boolean leftClick = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements onGridClick {
         gridRecyclerView = findViewById(R.id.activity_main_grids);
         gridRecyclerView.setLayoutManager(new GridLayoutManager(this, 8));
         myGame = new game();
-        adaptor = new gridRecycler(myGame.getMyMineGame().getMygrid(), this);
+        myGame.generateMines();
+        adaptor = new gridRecycler(myGame.getMygrid(), this);
         gridRecyclerView.setAdapter(adaptor);
     }
 
@@ -37,5 +39,11 @@ public class MainActivity extends AppCompatActivity implements onGridClick {
     @Override
     public void onGridClick(grid mygrid) {
         Toast.makeText(getApplicationContext(),"Clicked", Toast.LENGTH_SHORT).show();
+        if(leftClick){
+            myGame.show(mygrid);
+        }
+
+        adaptor = new gridRecycler(myGame.getMygrid(), this);
+        gridRecyclerView.setAdapter(adaptor);
     }
 }
