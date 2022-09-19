@@ -45,16 +45,17 @@ public class gridRecycler extends RecyclerView.Adapter<gridRecycler.MyViewHolder
 
             if(grid.flagged){
                 gridValue.setText("\uD83D\uDEA9");
+                itemView.setBackgroundColor(Color.GRAY);
             }
             else {
 
                 if (grid.revealed) {
                     if (grid.mine) {
                         gridValue.setText(R.string.mine);
-                        gridValue.setBackgroundColor(Color.GRAY);
+                        itemView.setBackgroundColor(Color.GRAY);
                     } else if (grid.value != 0) {
                         gridValue.setText(String.valueOf(grid.value));
-                        gridValue.setBackgroundColor(Color.GRAY);
+                        itemView.setBackgroundColor(Color.GRAY);
                     } else {
                         itemView.setBackgroundColor(Color.WHITE);
                     }

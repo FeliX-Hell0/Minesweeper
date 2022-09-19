@@ -230,6 +230,11 @@ public class game {
 
     public int winCheck(){
         for(int i = 0; i < this.mygrid.size(); i++){
+            if(mygrid.get(i).mine == true && mygrid.get(i).revealed == true){
+                return 2;
+            }
+        }
+        for(int i = 0; i < this.mygrid.size(); i++){
             if(mygrid.get(i).mine == true && (mygrid.get(i).flagged == false)){
                 return 0;
             }
