@@ -35,7 +35,7 @@ public class gridRecycler extends RecyclerView.Adapter<gridRecycler.MyViewHolder
         }
 
         public void bind(grid grid){
-            itemView.setBackgroundColor(Color.GRAY);
+            itemView.setBackgroundColor(Color.GREEN);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -43,21 +43,23 @@ public class gridRecycler extends RecyclerView.Adapter<gridRecycler.MyViewHolder
                 }
             });
 
-            if(grid.revealed) {
-                if (grid.mine) {
-                    gridValue.setText(R.string.mine);
-                } else if (grid.value != 0) {
-                    gridValue.setText(String.valueOf(grid.value));
+            if(grid.flagged){
+                gridValue.setText("\uD83D\uDEA9");
+            }
+            else {
 
-                } else {
-                    itemView.setBackgroundColor(Color.WHITE);
-                    grid temp;
-                    temp = clearWhite(grid);
+                if (grid.revealed) {
+                    if (grid.mine) {
+                        gridValue.setText(R.string.mine);
+                        gridValue.setBackgroundColor(Color.GRAY);
+                    } else if (grid.value != 0) {
+                        gridValue.setText(String.valueOf(grid.value));
+                        gridValue.setBackgroundColor(Color.GRAY);
+                    } else {
+                        itemView.setBackgroundColor(Color.WHITE);
+                    }
                 }
             }
-        }
-        private grid clearWhite(grid curr){
-
         }
     }
 
